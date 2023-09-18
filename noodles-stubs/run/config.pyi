@@ -1,0 +1,6 @@
+from _typeshed import Incomplete
+
+runners: Incomplete
+
+def find_runner(name: str, features: list[str]) -> str: ...
+def run_with_config(config_file, workflow, machine: Incomplete | None = ...): ...

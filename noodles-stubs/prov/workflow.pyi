@@ -1,0 +1,9 @@
+from _typeshed import Incomplete
+from collections.abc import Generator
+
+from ..serial import Registry
+from ..workflow import Workflow
+
+def links(wf, i, deps) -> Generator[Incomplete, None, None]: ...
+def empty_args(n) -> Generator[Incomplete, None, None]: ...
+def set_global_provenance(wf: Workflow, registry: Registry): ...
