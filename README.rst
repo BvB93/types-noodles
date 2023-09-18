@@ -1,1 +1,1 @@
-Stub files for PLAMS.
+Typing stubs for `noodles<https://github.com/NLeSC/noodles>`.
