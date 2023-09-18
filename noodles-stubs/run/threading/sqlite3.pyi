@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from typing import TypeVar
+from typing import Any, TypeVar
 
 from ...interface import PromisedObject
 from ...lib import Queue, pull
@@ -9,8 +9,8 @@ from ...workflow import Workflow
 
 _T = TypeVar("_T")
 
-def pass_job(db: JobDB, result_queue: Queue, always_cache: bool = ...) -> pull: ...
-def pass_result(db: JobDB, always_cache: bool = ...) -> pull: ...
+def pass_job(db: JobDB[Any], result_queue: Queue, always_cache: bool = ...) -> pull: ...
+def pass_result(db: JobDB[Any], always_cache: bool = ...) -> pull: ...
 def run_parallel(
     workflow: Workflow[_T] | PromisedObject[_T],
     *,

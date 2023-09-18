@@ -16,7 +16,7 @@ _T = TypeVar("_T")
 class NodeData(NamedTuple, Generic[_T]):
     function: Callable[..., _T]
     arguments: list[tuple[ArgumentAddress, Any]]
-    hints: Incomplete
+    hints: _Hints
 
 class FunctionNode(Generic[_T]):
     @staticmethod
@@ -25,13 +25,13 @@ class FunctionNode(Generic[_T]):
     bound_args: inspect.BoundArguments
     hints: _Hints
     result: _T | type[inspect._empty]
-    prov: None
+    prov: Incomplete | None
     def __init__(
         self, foo: Callable[..., _T], bound_args: inspect.BoundArguments, hints: _Hints, result: _T | type[inspect._empty] = ...
     ) -> None: ...
     def apply(self) -> _T: ...
     @property
-    def data(self) -> NodeData: ...
+    def data(self) -> NodeData[_T]: ...
 
 class Workflow(Generic[_T]):
     root: int
