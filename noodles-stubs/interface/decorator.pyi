@@ -1,6 +1,6 @@
 import inspect
 from collections.abc import Callable
-from typing import Any, Generic, Protocol, TypedDict, TypeVar
+from typing import Any, Generic, Protocol, TypedDict, TypeVar, Any
 from typing_extensions import NotRequired, ParamSpec
 
 from ..lib import decorator
@@ -45,7 +45,7 @@ def result(obj: _SupportsResult[_T]) -> _T: ...
 @maybe
 def _do_call(obj: Callable[_P, _T], *args: _P.args, **kwargs: _P.kwargs) -> _T: ...
 
-class PromisedObject(Generic[_T]):
+class PromisedObject(Generic[_T], Any):
     def __init__(self, workflow: Workflow[_T]) -> None: ...
     def __call__(self, *args, **kwargs): ...
     def __getattr__(self, attr: str) -> Any: ...
